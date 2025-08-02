@@ -6,4 +6,7 @@
     <orderEntry type="jdk" jdkName="ms-17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="7406d69d-6500-42b9-9d9f-006d78359251" />
+  </component>
 </module>

@@ -4,7 +4,7 @@ import com.devotel.userservice.domain.User;
 import com.devotel.userservice.dto.UserRequestDto;
 import com.devotel.userservice.dto.UserResponseDto;
 import com.devotel.userservice.exception.UserNotFoundException;
-import com.devotel.userservice.repository.UserRepositroy;
+import com.devotel.userservice.repository.UserRepository;
 import com.devotel.userservice.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
@@ -14,10 +14,10 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private final UserRepositroy userRepository;
+    private final UserRepository userRepository;
     private final ObjectMapper objectMapper;
 
-    public UserServiceImpl(UserRepositroy userRepository, ObjectMapper objectMapper) {
+    public UserServiceImpl(UserRepository userRepository, ObjectMapper objectMapper) {
         this.userRepository = userRepository;
         this.objectMapper = objectMapper;
     }
