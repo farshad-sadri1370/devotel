@@ -1,6 +1,11 @@
 package com.devotel.userservice.soap.user;
 
+import com.devotel.user.soap.GetUserRequest;
+import com.devotel.user.soap.GetUserResponse;
+import com.devotel.user.soap.UserSoap;
+
 import com.devotel.userservice.domain.User;
+import com.devotel.userservice.exception.UserNotFoundException;
 import com.devotel.userservice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -13,14 +18,17 @@ public class UserSoapEndpoint {
 
     private static final String NAMESPACE_URI = "http://soap.user.devotel.com";
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    public UserSoapEndpoint(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "GetUserRequest")
     @ResponsePayload
     public GetUserResponse getUser(@RequestPayload GetUserRequest request) {
         User user = userRepository.findById(request.getId())
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new UserNotFoundException("User not found"));
 
         UserSoap userSoap = new UserSoap();
         userSoap.setId(user.getId());

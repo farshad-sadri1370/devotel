@@ -1,8 +1,10 @@
 package com.devotel.userservice.service.Impl;
 
-import com.devotel.userservice.domain.User;
+
 import com.devotel.userservice.dto.UserRequestDto;
 import com.devotel.userservice.dto.UserResponseDto;
+import com.devotel.userservice.domain.User;
+
 import com.devotel.userservice.exception.UserNotFoundException;
 import com.devotel.userservice.repository.UserRepository;
 import com.devotel.userservice.service.UserService;
