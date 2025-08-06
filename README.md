@@ -25,11 +25,9 @@ This project contains two Spring Boot microservices that:
 - Spring Boot
 - Spring Web (REST)
 - Spring-WS (SOAP)
-- H2 or PostgreSQL Database
+- PostgreSQL Database
 - Maven
 - Swagger/OpenAPI
-- DTOs, Layered Architecture (Controller, Service, Repository)
-- Lombok
 
 ---
 
